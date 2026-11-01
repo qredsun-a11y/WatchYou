@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">WatchYou</string>
+    <string name="btn_start">开始监控</string>
+    <string name="btn_stop">停止监控</string>
+    <string name="status_stopped">监控已停止</string>
+    <string name="status_running">监控运行中...</string>
+    <string name="info_text">点击"开始监控"启动门口检测
+检测到人/动物会自动抓拍、录像、播放提醒音</string>
+</resources>

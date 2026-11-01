@@ -1,0 +1,11 @@
+<resources>
+    <style name="Theme.WatchYou" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ic_launcher_background</item>
+        <item name="colorPrimaryVariant">@color/ic_launcher_background</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/ic_launcher_background</item>
+        <item name="colorSecondaryVariant">@color/ic_launcher_background</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
+</resources>

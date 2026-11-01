@@ -1,0 +1,55 @@
+# Gradle
+.gradle/
+build/
+*/build/
+!**/src/main/**/build.gradle
+
+# Local configuration
+local.properties
+gradle.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated files
+*.apk
+*.aar
+*.class
+*.dex
+*.o
+*.so
+
+# Python venv
+python/venv/
+python/__pycache__/
+*.pyc
+
+# Test/temp files
+*.tmp
+temp*.txt
+*.bak
+*.backup
+
+# Generated images/videos (from app runtime)
+Pictures/
+Movies/
+
+# Python scripts (dev tools)
+*.py
+!README.md
+
+# Model files (large binary)
+*.pt
+*.tflite
+!android/app/src/main/assets/yolov5n_int8.tflite
+
+# Logs
+*.log
