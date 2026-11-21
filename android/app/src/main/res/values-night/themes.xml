@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 深色模式：状态栏用深绿容器色，保证白色图标可读 -->
+    <style name="Theme.WatchYou" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:statusBarColor">@color/md_primaryContainer</item>
+    </style>
+
+</resources>

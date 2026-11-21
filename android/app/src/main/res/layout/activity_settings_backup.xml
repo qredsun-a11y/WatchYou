@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- ===== 检测设置 ===== -->
+        <androidx.cardview.widget.CardView
+            style="@style/Widget.WatchYou.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorPrimary"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/settings_detect_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <!-- 置信度阈值 -->
+                <TextView
+                    android:text="@string/settings_confidence_label"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+                    <SeekBar
+                        android:id="@+id/sbConfidence"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:min="10" android:max="90" android:progress="50" android:paddingEnd="8dp"/>
+                    <TextView
+                        android:id="@+id/tvConfidenceVal"
+                        android:layout_width="56dp"
+                        android:textAlignment="textEnd"
+                        android:text="50%"
+                        android:textSize="14sp"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!-- IoU 阈值 -->
+                <TextView
+                    android:text="@string/settings_iou_label"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+                    <SeekBar
+                        android:id="@+id/sbIou"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:min="10" android:max="90" android:progress="45" android:paddingEnd="8dp"/>
+                    <TextView
+                        android:id="@+id/tvIouVal"
+                        android:layout_width="56dp"
+                        android:textAlignment="textEnd"
+                        android:text="0.45"
+                        android:textSize="14sp"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!-- 最小框面积比例 -->
+                <TextView
+                    android:text="@string/settings_min_area_label"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"/>
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+                    <SeekBar
+                        android:id="@+id/sbMinArea"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:min="1" android:max="25" android:progress="2" android:paddingEnd="8dp"/>
+                    <TextView
+                        android:id="@+id/tvMinAreaVal"
+                        android:layout_width="56dp"
+                        android:textAlignment="textEnd"
+                        android:text="2%"
+                        android:textSize="14sp"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!-- 目标类别：ChipGroup + Chip -->
+                <TextView
+                    android:text="@string/settings_target_classes_label"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"/>
+                <com.google.android.material.chip.ChipGroup
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp">
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipPerson"
+                        style="@style/Widget.WatchYou.Chip.Filter"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/target_person" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipBird"
+                        style="@style/Widget.WatchYou.Chip.Filter"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/target_bird" />
+                </com.google.android.material.chip.ChipGroup>
+                <com.google.android.material.chip.ChipGroup
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp">
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipCat"
+                        style="@style/Widget.WatchYou.Chip.Filter"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="@string/target_cat" />
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/chipDog"
+                        style="@style/Widget.WatchYou.Chip.Filter"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="@string/target_dog" />
+                </com.google.android.material.chip.ChipGroup>
+
+                <!-- 检测间隔 -->
+                <TextView
+                    android:text="@string/settings_detect_interval_label"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"/>
+                <Spinner
+                    android:id="@+id/spinnerDetectInterval"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ===== 录像设置 ===== -->
+        <androidx.cardview.widget.CardView
+            style="@style/Widget.WatchYou.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorPrimary"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/settings_record_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <!-- 录像时长 -->
+                <TextView
+                    android:text="@string/settings_record_duration_label"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <Spinner
+                    android:id="@+id/spinnerRecordDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"/>
+
+                <!-- 无目标超时 -->
+                <TextView
+                    android:text="@string/settings_no_target_label"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"/>
+                <Spinner
+                    android:id="@+id/spinnerNoTargetTimeout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"/>
+
+                <!-- 水印开关 -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:text="@string/settings_show_watermark_label"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchWatermark"
+                        style="@style/Widget.WatchYou.Switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+                <!-- 时间戳开关 -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:text="@string/settings_show_timestamp_label"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchTimestamp"
+                        style="@style/Widget.WatchYou.Switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ===== 高级设置 ===== -->
+        <androidx.cardview.widget.CardView
+            style="@style/Widget.WatchYou.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:textStyle="bold"
+                    android:textSize="16sp"
+                    android:textColor="?attr/colorPrimary"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/settings_advanced_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <!-- 线程数 -->
+                <TextView
+                    android:text="@string/settings_threads_label"
+                    android:textColor="?attr/colorOnSurfaceVariant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+                <Spinner
+                    android:id="@+id/spinnerThreads"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"/>
+
+                <!-- NNAPI -->
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical">
+                    <TextView
+                        android:text="@string/settings_nnapi_label"
+                        android:textColor="?attr/colorOnSurfaceVariant"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchNnapi"
+                        style="@style/Widget.WatchYou.Switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- ===== 按钮组 ===== -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+            <Button
+                android:id="@+id/btnReset"
+                style="@style/Widget.WatchYou.Button.Outline"
+                android:text="@string/settings_reset"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/btnSave"
+                style="@style/Widget.WatchYou.Button"
+                android:text="@string/settings_save"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginStart="8dp"
+                app:backgroundTint="?attr/colorPrimary"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
+

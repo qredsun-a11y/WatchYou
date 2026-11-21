@@ -1,0 +1,14 @@
+# Local configuration - COPY THIS FILE TO local.properties AND MODIFY PATHS
+# This file is in .gitignore and should NOT be committed
+
+# Android SDK location
+sdk.dir=G\:\\Android\\android-sdk
+
+# ADB executable path (optional, can use sdk.dir + platform-tools/adb.exe)
+adb.path=G\:\\Android\\android-sdk\\platform-tools\\adb.exe
+
+# Gradle distribution (optional, if not using wrapper)
+gradle.path=G\:\\Android\\gradle\\gradle-8.5\\bin\\gradle.bat
+
+# JDK home (optional, for Gradle)
+# org.gradle.java.home=G\:\\Android\\jdk-17

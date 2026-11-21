@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material 3 语义化色板（深色模式） -->
+    <color name="md_primary">#81C784</color>
+    <color name="md_primaryContainer">#1B5E20</color>
+    <color name="md_onPrimaryContainer">#C8E6C9</color>
+    <color name="md_secondary">#BCAAA4</color>
+    <color name="md_secondaryContainer">#3E2723</color>
+    <color name="md_tertiary">#4FC3F7</color>
+    <color name="md_error">#EF5350</color>
+    <color name="md_background">#121212</color>
+    <color name="md_surface">#1E1E1E</color>
+    <color name="md_onSurfaceVariant">#B0B0B0</color>
+    <color name="md_outline">#616161</color>
+    <color name="md_outlineVariant">#303030</color>
+    <color name="status_success">#66BB6A</color>
+    <color name="status_warning">#FFB74D</color>
+    <color name="status_error">#EF5350</color>
+</resources>
